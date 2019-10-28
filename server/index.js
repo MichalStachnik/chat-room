@@ -16,7 +16,7 @@ app.get('/get-messages', (req, res) => {
 });
 
 app.post('/send-message', (req, res) => {
-  console.log('hit the server with', req);
+  // console.log('hit the server with', req);
   res.sendStatus(200);
 });
 
