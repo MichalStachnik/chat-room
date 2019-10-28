@@ -1,8 +1,5 @@
 <template>
   <div class="chatroom">
-    <div>
-      {{ url }}
-    </div>
     <MessageList />
     <ChatInput :url="url" />
   </div>
@@ -24,14 +21,13 @@ export default {
       const port = process.env.PORT
       let url = ''
       if (port) {
-        // url = `http://0.0.0.0:${port}`
         url = `https://better-server-side.herokuapp.com`
       } else {
         url = 'http://localhost:3000'
       }
       const { data } = await axios.get(`${url}/get-messages`)
 
-      url = port ? 'https://better-server-side.herokuapp.com/send-message' : 'http://localhost:3000'
+      // url = port ? 'https://better-server-side.herokuapp.com/send-message' : 'http://localhost:3000'
       return { url, MockData: data.MockData }
     } catch (err) {
       console.warn(err)

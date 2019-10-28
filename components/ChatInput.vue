@@ -33,7 +33,7 @@ export default {
         return
       }
 
-      axios.post(`${this.url}`, { message: this.message })
+      axios.post(`${this.url}/send-message`, { message: this.message })
         .then((res) => {
           this.$store.dispatch('addMessage', this.message)
           this.message = ''
