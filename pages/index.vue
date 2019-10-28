@@ -26,7 +26,7 @@ export default {
       const port = process.env.PORT
       let url = ''
       if (port) {
-        url = `http://0.0.0.0:${port}`
+        url = `https://0.0.0.0:${port}`
       } else {
         url = 'http://localhost:3000'
       }

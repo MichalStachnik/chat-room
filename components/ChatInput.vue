@@ -30,7 +30,6 @@ export default {
   },
   methods: {
     sendMessage () {
-      console.log('send message fired')
       if (this.message.length === 0 || this.getCharsLeft <= 0) {
         return
       }
