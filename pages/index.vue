@@ -11,8 +11,6 @@
 <script>
 import axios from 'axios'
 
-// import MockData from '../static/mock-data.json'
-
 import ChatInput from '@/components/ChatInput'
 import MessageList from '@/components/MessageList'
 
@@ -26,15 +24,13 @@ export default {
       const port = process.env.PORT
       let url = ''
       if (port) {
-        url = `http://0.0.0.0:${port}`
+        // url = `http://0.0.0.0:${port}`
+        url = `https://better-server-side.herokuapp.com/`
       } else {
         url = 'http://localhost:3000'
       }
-      console.log('our url - ', url)
       const { data } = await axios.get(`${url}/get-messages`)
-      console.log('data from axios in asyncData', data)
 
-      // url = port ? `https://0.0.0.0:${port}` : 'http://localhost:3000'
       url = port ? 'https://better-server-side.herokuapp.com/send-message' : 'http://localhost:3000'
       return { url, MockData: data.MockData }
     } catch (err) {
@@ -48,7 +44,6 @@ export default {
     }
   },
   created () {
-    // this.MockData = MockData
     this.$store.dispatch('initData', this.MockData)
   }
 }

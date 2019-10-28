@@ -3,7 +3,6 @@
     <div>
       <span class="chars-left">{{ getCharsLeft }}</span>
       <input v-model="message" class="message" type="text" placeholder="what's happening?">
-      <!-- <textarea v-model="message" class="message" placeholder="what's happening?"></textarea> -->
       <span class="plane-container" @click="sendMessage">
         <i class="material-icons">send</i>
       </span>
@@ -33,10 +32,9 @@ export default {
       if (this.message.length === 0 || this.getCharsLeft <= 0) {
         return
       }
-      console.log('url', this.url)
+
       axios.post(`${this.url}`, { message: this.message })
         .then((res) => {
-          console.log('res from server', res)
           this.$store.dispatch('addMessage', this.message)
           this.message = ''
         })

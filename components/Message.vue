@@ -126,7 +126,6 @@ export default {
     min-height: 50px;
     padding: 15px 20px;
     display: flex;
-    align-items: center;
     justify-content: center;
     background: #eee;
     border-radius: 5px;
