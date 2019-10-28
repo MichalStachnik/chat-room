@@ -34,7 +34,7 @@ export default {
         return
       }
       console.log('url', this.url)
-      axios.post(`${this.url}/send-message`, { message: this.message })
+      axios.post(`${this.url}`, { message: this.message })
         .then((res) => {
           console.log('res from server', res)
           this.$store.dispatch('addMessage', this.message)
