@@ -27,6 +27,8 @@ export default {
       // const { data } = await axios.get('http://localhost:3000/get-messages')
       const baseUrl = process.env.baseUrl
       console.log('BASEURL', baseUrl)
+      const port = process.env.port
+      console.log('PORT', port)
       // const { data } = await axios.get(`${baseUrl}/get-messages`)
       const { data } = await axios.get('/get-messages')
       console.log('data from axios in asyncData', data)
