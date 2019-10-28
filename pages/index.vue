@@ -25,7 +25,7 @@ export default {
       let url = ''
       if (port) {
         // url = `http://0.0.0.0:${port}`
-        url = `https://better-server-side.herokuapp.com/`
+        url = `https://better-server-side.herokuapp.com`
       } else {
         url = 'http://localhost:3000'
       }
