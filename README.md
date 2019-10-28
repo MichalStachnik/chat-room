@@ -9,12 +9,19 @@
 ## Todo
 
 > Add tests
+>
 > Implement some sort of receipt / persistance on new message POST
+>
 > Brittle ID data in vuex store - use uuid
+>
 > Repetitive code to get the current user in `Message.vue` should be refactored
+>
 > Move express logic into own `/api` directory and add express router
+>
 > Add error styling for `ChatInput.vue` and change `<input>` to `<textarea>` maybe
+>
 > Add authentication
+>
 
 ## Build Setup
 
