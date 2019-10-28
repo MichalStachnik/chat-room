@@ -1,11 +1,10 @@
 <template>
   <div class="chatroom">
     <div>
-      hi
-      {{ tst }}
+      {{ url }}
     </div>
     <MessageList />
-    <ChatInput />
+    <ChatInput :url="url" />
   </div>
 </template>
 
@@ -27,14 +26,14 @@ export default {
       const port = process.env.PORT
       let url = ''
       if (port) {
-        url = `http://0.0.0.0:${port}/get-messages`
+        url = `http://0.0.0.0:${port}`
       } else {
-        url = 'http://localhost:3000/get-messages'
+        url = 'http://localhost:3000'
       }
       console.log('our url - ', url)
-      const { data } = await axios.get(url)
+      const { data } = await axios.get(`${url}/get-messages`)
       console.log('data from axios in asyncData', data)
-      return { tst: data.message, MockData: data.MockData }
+      return { url, MockData: data.MockData }
     } catch (err) {
       console.warn(err)
     }
@@ -42,7 +41,7 @@ export default {
   data () {
     return {
       MockData: {},
-      tst: 'dataaaaa'
+      url: ''
     }
   },
   created () {

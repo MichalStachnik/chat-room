@@ -16,6 +16,7 @@ import axios from 'axios'
 
 export default {
   name: 'ChatInput',
+  props: ['url'],
   data () {
     return {
       message: '',
@@ -33,16 +34,8 @@ export default {
       if (this.message.length === 0 || this.getCharsLeft <= 0) {
         return
       }
-
-      const port = process.env.PORT
-      let url = ''
-      if (port) {
-        url = `http://0.0.0.0:${port}/send-message`
-      } else {
-        url = 'http://localhost:3000/send-message'
-      }
-      console.log('our url - ', url)
-      axios.post(url, { message: this.message })
+      console.log('url', this.url)
+      axios.post(`${this.url}/send-message`, { message: this.message })
         .then((res) => {
           console.log('res from server', res)
           this.$store.dispatch('addMessage', this.message)
