@@ -43,6 +43,7 @@ module.exports = {
   */
   modules: [
   ],
+  devModules: ['@nuxtjs/eslint-module'],
   /*
   ** Build configuration
   */
