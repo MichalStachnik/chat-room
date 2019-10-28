@@ -3,7 +3,7 @@
     <div class="other-user">
       <img v-if="message.user !== 4" :src="require(`../assets/${getPic}.jpg`)" alt="user pic">
     </div>
-    <div class="message">
+    <div class="message" :class="{ 'is-user-message': message.user === 4 }">
       <div class="message-top">
         <div v-if="message.user !== 4" class="message-username">
           {{ getRealName }} - @{{ getUserName }}
@@ -112,6 +112,11 @@ export default {
 
   .message {
     color: #291842;
+    width: 95%;
+  }
+
+  .is-user-message {
+    place-self: end;
   }
 
   .message-top {
@@ -126,7 +131,7 @@ export default {
     min-height: 50px;
     padding: 15px 20px;
     display: flex;
-    justify-content: center;
+    align-items: center;
     background: #eee;
     border-radius: 5px;
     cursor: pointer;
