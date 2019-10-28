@@ -113,6 +113,7 @@ export default {
   .message {
     color: #291842;
     width: 95%;
+    word-break: break-word;
   }
 
   .is-user-message {
