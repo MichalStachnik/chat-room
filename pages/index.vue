@@ -34,7 +34,8 @@ export default {
       const { data } = await axios.get(`${url}/get-messages`)
       console.log('data from axios in asyncData', data)
 
-      url = port ? `https://0.0.0.0:${port}` : 'http://localhost:3000'
+      // url = port ? `https://0.0.0.0:${port}` : 'http://localhost:3000'
+      url = port ? 'https://better-server-side.herokuapp.com/send-message' : 'http://localhost:3000'
       return { url, MockData: data.MockData }
     } catch (err) {
       console.warn(err)
