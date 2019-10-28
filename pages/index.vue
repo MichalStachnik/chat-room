@@ -24,12 +24,15 @@ export default {
   },
   async asyncData (context) {
     try {
-      // const { data } = await axios.get('http://localhost:3000/get-messages')
-      const baseUrl = process.env.baseUrl
-      console.log('BASEURL', baseUrl)
       const port = process.env.PORT
-      console.log('PORT', port)
-      const { data } = await axios.get(`${baseUrl}/get-messages`)
+      let url = ''
+      if (port) {
+        url = `http://0.0.0.0:${port}/get-messages`
+      } else {
+        url = 'http://localhost:3000/get-messages'
+      }
+      console.log('our url - ', url)
+      const { data } = await axios.get(url)
       console.log('data from axios in asyncData', data)
       return { tst: data.message, MockData: data.MockData }
     } catch (err) {
