@@ -33,7 +33,16 @@ export default {
       if (this.message.length === 0 || this.getCharsLeft <= 0) {
         return
       }
-      axios.post('http://localhost:3000/send-message', { message: this.message })
+
+      const port = process.env.PORT
+      let url = ''
+      if (port) {
+        url = `http://0.0.0.0:${port}/send-message`
+      } else {
+        url = 'http://localhost:3000/send-message'
+      }
+      console.log('our url - ', url)
+      axios.post(url, { message: this.message })
         .then((res) => {
           console.log('res from server', res)
           this.$store.dispatch('addMessage', this.message)
