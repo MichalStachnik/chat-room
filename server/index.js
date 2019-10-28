@@ -7,7 +7,12 @@ const MockData = require('../static/mock-data.json')
 
 // Set routes
 app.get('/get-messages', (req, res) => {
-  res.send({ message: 'hey', MockData });
+  try {
+    console.log('in get messages');
+    res.send({ message: 'hey', MockData });
+  } catch (err) {
+    next(err);
+  }
 });
 
 app.post('/send-message', (req, res) => {
