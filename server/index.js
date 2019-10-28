@@ -6,19 +6,19 @@ const app = express()
 const MockData = require('../static/mock-data.json')
 
 // Set routes
-app.get('/get-messages', (req, res) => {
-  try {
-    console.log('in get messages');
-    res.send({ message: 'hey', MockData });
-  } catch (err) {
-    next(err);
-  }
-});
+// app.get('/get-messages', (req, res) => {
+//   try {
+//     console.log('in get messages');
+//     res.send({ message: 'hey', MockData });
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
-app.post('/send-message', (req, res) => {
-  console.log('hit the server with', req);
-  res.sendStatus(200);
-});
+// app.post('/send-message', (req, res) => {
+//   console.log('hit the server with', req);
+//   res.sendStatus(200);
+// });
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
