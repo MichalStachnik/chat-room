@@ -18,16 +18,9 @@ export default {
   },
   async asyncData (context) {
     try {
-      const port = process.env.PORT
-      let url = ''
-      if (port) {
-        url = `https://better-server-side.herokuapp.com`
-      } else {
-        url = 'http://localhost:3000'
-      }
+      const url = process.env.PORT ? 'https://better-server-side.herokuapp.com' : 'http://localhost:3000'
       const { data } = await axios.get(`${url}/get-messages`)
 
-      // url = port ? 'https://better-server-side.herokuapp.com/send-message' : 'http://localhost:3000'
       return { url, MockData: data.MockData }
     } catch (err) {
       console.warn(err)
@@ -49,5 +42,6 @@ export default {
 <style>
   .chatroom {
     height: 100vh;
+    width: 100vw;
   }
 </style>
