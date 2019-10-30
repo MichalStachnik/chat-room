@@ -16,6 +16,10 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  max-width: 100vw;
+}
+
 *,
 *:before,
 *:after {
